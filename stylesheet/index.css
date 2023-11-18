@@ -8,7 +8,29 @@
     font-size: 14px;
 }
 
-#country-header {
+#country-heading {
     padding: 2rem 4rem;
     font-size: 3rem;
+}
+
+#countries-container {
+    justify-content: center;
+    display:flex;
+    flex-wrap:wrap;
+}
+.country-container {
+    width:20%;
+    padding:2rem 3rem;
+    margin:1rem 1rem;
+    font-weight: 500;
+}
+
+.country-container p {
+    font-size: 1.5rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.country-container img {
+    max-width: 80%;
+    padding: 0.5rem;
 }
