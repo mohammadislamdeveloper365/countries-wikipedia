@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+:root {
+    font-size: 14px;
+}
+
+#country-header {
+    padding: 2rem 4rem;
+    font-size: 3rem;
+}
