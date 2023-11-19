@@ -43,10 +43,33 @@ function loadCountryByName(countryName) {
     
     fetch(url).
     then(response => response.json()).
-    then(data => console.log(data)).
+    then(data => {
+        console.log(data);
+        displayCountryByName(data)
+    }).
     catch(error => {
         console.log("No Country Found" + error)
     });
+}
+
+function displayCountryByName(country) {
+    const parentElement = getElementById('main-container');
+    const countriesContainer = getElementById('countries-container');
+    countriesContainer.innerHTML = '';
+    console.log(countriesContainer)
+    countriesContainer.id = 'countries-container';
+    const countryContainer = createElement('div');
+    countryContainer.classList.add('country-container');
+    countryContainer.innerHTML = `<p>Name: ${country[0]?.name?.common}</p>
+        <p>Capital City: ${country[0]?.capital?.[0] ?? 'No Capital'}</p>
+        <p>Continent: ${country[0]?.continents?.[0] ?? 'No Continent'}</p>
+        <p>Population: ${country[0]?.population ?? 'Unavailable'}</p>
+        <img src='${country[0].flags?.png ?? "Unavailable"}'/>
+        `;
+    countryContainer.style.backgroundColor = `${getRandomColor()}`;
+    countriesContainer.appendChild(countryContainer);
+    parentElement.appendChild(countriesContainer);
+    console.log(countriesContainer)
 }
 
 function getRandomColor() {
