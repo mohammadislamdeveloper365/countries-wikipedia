@@ -1,16 +1,21 @@
 // import { getElementById, createElement } from "./utilities";
 loadAllCountries();
+searchCountryByName();
 
+function searchCountryByName() {
+    const buttonElement = getElementById('country-search-btn');
+    buttonElement.addEventListener('click', ()=> {
+        const searchField = getElementById('country-name').value;
+        loadCountryByName(searchField);
+    })
+}
 
 function loadAllCountries() {
     const url = 'https://restcountries.com/v3.1/all';
 
     fetch(url).
     then(response => response.json()).
-    then(data => {
-        console.log(data)
-        displayAllCountries(data)
-    });
+    then(data => displayAllCountries(data)).catch(error => console.log(error));
 }
 
 function displayAllCountries(countries) {
@@ -21,8 +26,7 @@ function displayAllCountries(countries) {
     countries.forEach(country=>{
         const countryContainer = createElement('div');
         countryContainer.classList.add('country-container');
-        countryContainer.innerHTML = `
-        <p>Name: ${country?.name?.common}<p>
+        countryContainer.innerHTML = `<p>Name: ${country?.name?.common}</p>
         <p>Capital City: ${country?.capital?.[0] ?? 'No Capital'}</p>
         <p>Continent: ${country?.continents?.[0] ?? 'No Continent'}</p>
         <p>Population: ${country?.population ?? 'Unavailable'}</p>
@@ -32,6 +36,17 @@ function displayAllCountries(countries) {
         countriesContainer.appendChild(countryContainer);
     });
     parentElement.appendChild(countriesContainer);
+}
+
+function loadCountryByName(countryName) {
+    const url = `https://restcountries.com/v3.1/name/${countryName}`;
+    
+    fetch(url).
+    then(response => response.json()).
+    then(data => console.log(data)).
+    catch(error => {
+        console.log("No Country Found" + error)
+    });
 }
 
 function getRandomColor() {
