@@ -56,7 +56,6 @@ function displayCountryByName(country) {
     const parentElement = getElementById('main-container');
     const countriesContainer = getElementById('countries-container');
     countriesContainer.innerHTML = '';
-    console.log(countriesContainer)
     countriesContainer.id = 'countries-container';
     const countryContainer = createElement('div');
     countryContainer.classList.add('country-container');
@@ -69,7 +68,6 @@ function displayCountryByName(country) {
     countryContainer.style.backgroundColor = `${getRandomColor()}`;
     countriesContainer.appendChild(countryContainer);
     parentElement.appendChild(countriesContainer);
-    console.log(countriesContainer)
 }
 
 function getRandomColor() {
