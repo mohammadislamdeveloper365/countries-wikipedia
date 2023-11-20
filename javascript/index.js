@@ -87,6 +87,5 @@ function getRandomColor() {
 
 function displayErrorMessage() {
     const errorElement = getElementById('country-error');
-    console.log(errorElement)
     errorElement.style.display = 'block';
 }
