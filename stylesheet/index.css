@@ -47,6 +47,19 @@
     font-size: 2.5rem;
 }
 
+
+#search-box-container input {
+    outline: none;
+}
+
+#country-error {
+    padding:20px 0;
+    text-align: center;
+    color: red;
+    font-size: 2rem;
+    display:none;
+}
+
 #country-search-btn {
     background-color: blue;
     color:white;

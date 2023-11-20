@@ -40,19 +40,20 @@ function displayAllCountries(countries) {
 
 function loadCountryByName(countryName) {
     const url = `https://restcountries.com/v3.1/name/${countryName}`;
-    
-    fetch(url).
-    then(response => response.json()).
-    then(data => {
-        console.log(data);
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
         displayCountryByName(data)
-    }).
-    catch(error => {
-        console.log("No Country Found" + error)
+    }).catch(error => {
+        displayErrorMessage();
+        console.log(`No Country Found.Error Details: ${error}`)
     });
 }
 
 function displayCountryByName(country) {
+    const errorElement = getElementById('country-error');
+    errorElement.style.display = 'none';
     const parentElement = getElementById('main-container');
     const countriesContainer = getElementById('countries-container');
     countriesContainer.innerHTML = '';
@@ -82,4 +83,10 @@ function getRandomColor() {
     }
 
     return color;
+}
+
+function displayErrorMessage() {
+    const errorElement = getElementById('country-error');
+    console.log(errorElement)
+    errorElement.style.display = 'block';
 }
