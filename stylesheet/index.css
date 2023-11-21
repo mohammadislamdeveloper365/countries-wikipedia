@@ -50,6 +50,7 @@
 
 #search-box-container input {
     outline: none;
+    padding: 0 5px 5px 0;
 }
 
 #country-error {
