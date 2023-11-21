@@ -49,6 +49,7 @@ function loadCountryByName(countryName) {
         displayCountryByName(data)
     }).catch(error => {
         displayErrorMessage();
+        console.log(`No Country Found`)
     });
 }
 
