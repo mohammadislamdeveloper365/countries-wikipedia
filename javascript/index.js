@@ -46,11 +46,10 @@ function loadCountryByName(countryName) {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         displayCountryByName(data)
     }).catch(error => {
         displayErrorMessage();
-        console.log(`No Country Found.Error Details: ${error}`)
+        console.log(`No Country Found`)
     });
 }
 
